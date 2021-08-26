@@ -32,11 +32,11 @@ module.exports = class ScriptsForDB {
 
     // добавляем координаты и имя балуна
     static async saveBaloon(userData) {
-        const { id_user, name, coordinats } = userData;
+        const { id_user, name, latitude, longitude } = userData;
         return new Promise((resolve, reject) =>
             db.run(
-                `INSERT INTO mapData (id_user, name, coordinats) VALUES (?, ?, ?)`,
-                [id_user, name, coordinats],
+                `INSERT INTO mapData (id_user, name, latitude, longitude) VALUES (?, ?, ?, ?)`,
+                [id_user, name, latitude, longitude],
                 (err) => (err ? reject(err) : resolve("Метка - в базе"))
             )
         );
@@ -57,11 +57,11 @@ module.exports = class ScriptsForDB {
 
     // обновляем координаты и имя балуна
     static async updateBaloon(userData) {
-        const { id_user, name, coordinats } = userData;
+        const { id_user, name, latitude, longitude } = userData;
         return new Promise((resolve, reject) =>
             db.run(
-                `UPDATE mapData SET name = ?, coordinats = ? WHERE id_user = ?`,
-                [name, coordinats, id_user],
+                `UPDATE mapData SET name = ?, latitude = ?, longitude = ? WHERE id_user = ?`,
+                [name, latitude, longitude, id_user],
                 (err) => (err ? reject(err) : resolve("Метка обновлена"))
             )
         );
