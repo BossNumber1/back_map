@@ -57,11 +57,11 @@ module.exports = class ScriptsForDB {
 
     // обновляем координаты и имя балуна
     static async updateBaloon(userData) {
-        const { id_user, name, latitude, longitude } = userData;
+        const { name, latitude, longitude, id_user, oldName } = userData;
         return new Promise((resolve, reject) =>
             db.run(
-                `UPDATE mapData SET name = ?, latitude = ?, longitude = ? WHERE id_user = ?`,
-                [name, latitude, longitude, id_user],
+                `UPDATE mapData SET name = ?, latitude = ?, longitude = ? WHERE id_user = ? AND name = ?`,
+                [name, latitude, longitude, id_user, oldName],
                 (err) => (err ? reject(err) : resolve("Метка обновлена"))
             )
         );
