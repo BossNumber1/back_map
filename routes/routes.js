@@ -46,28 +46,28 @@ module.exports = router = (app) => {
     generalFunctionForRoutes_POST(
         app,
         generalFunctionConnectWithDB,
-        "/saveBaloon/",
-        ScriptsForDB.saveBaloon
+        "/createPlacemark/",
+        ScriptsForDB.createPlacemark
     );
 
     generalFunctionForRoutes_POST(
         app,
         generalFunctionConnectWithDB,
-        "/getBaloons/",
-        ScriptsForDB.getBaloons
+        "/getPlacemarksData/",
+        ScriptsForDB.getPlacemarksData
     );
 
     generalFunctionForRoutes_POST(
         app,
         generalFunctionConnectWithDB,
-        "/updateBaloon/",
-        ScriptsForDB.updateBaloon
+        "/updatePlacemark/",
+        ScriptsForDB.updatePlacemark
     );
 
     generalFunctionForRoutes_POST(
         app,
         generalFunctionConnectWithDB,
-        "/deleteBaloon/",
-        ScriptsForDB.deleteBaloon
+        "/deletePlacemark/",
+        ScriptsForDB.deletePlacemark
     );
 };

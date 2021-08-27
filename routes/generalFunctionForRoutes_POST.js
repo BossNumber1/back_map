@@ -17,7 +17,7 @@ module.exports = function generalFunctionForRoutes_POST(
                 if (resultat !== null) {
                     res.json(`${JSON.stringify(resultat)}`);
                 } else {
-                    res.send(`out`);
+                    res.send(`empty`);
                 }
             }
         } catch (e) {

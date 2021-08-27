@@ -5,7 +5,7 @@ module.exports = class ScriptsForDB {
         db = newDB;
     }
 
-    // добавляем юзера
+    // добавляем пользователя
     static async saveUser(userData) {
         const { login, password } = userData;
         return new Promise((resolve, reject) =>
@@ -17,7 +17,7 @@ module.exports = class ScriptsForDB {
         );
     }
 
-    // получаем юзера
+    // получаем пользователя
     static async getUserData(userData) {
         const { login } = userData;
         return new Promise((resolve, reject) =>
@@ -30,8 +30,8 @@ module.exports = class ScriptsForDB {
         );
     }
 
-    // добавляем координаты и имя балуна
-    static async saveBaloon(userData) {
+    // добавляем координаты и имя метки
+    static async createPlacemark(userData) {
         const { id_user, name, latitude, longitude } = userData;
         return new Promise((resolve, reject) =>
             db.run(
@@ -42,8 +42,8 @@ module.exports = class ScriptsForDB {
         );
     }
 
-    // получаем координаты и имя балуна
-    static async getBaloons(userData) {
+    // получаем координаты и имя метки
+    static async getPlacemarksData(userData) {
         const { id_user } = userData;
         return new Promise((resolve, reject) =>
             db.all(
@@ -55,8 +55,8 @@ module.exports = class ScriptsForDB {
         );
     }
 
-    // обновляем координаты и имя балуна
-    static async updateBaloon(userData) {
+    // обновляем координаты и имя метки
+    static async updatePlacemark(userData) {
         const { name, latitude, longitude, id_user, oldName } = userData;
         return new Promise((resolve, reject) =>
             db.run(
@@ -67,8 +67,8 @@ module.exports = class ScriptsForDB {
         );
     }
 
-    // удаляем балун
-    static async deleteBaloon(userData) {
+    // удаляем метку
+    static async deletePlacemark(userData) {
         const { id_user, name } = userData;
         return new Promise((resolve, reject) =>
             db.run(
